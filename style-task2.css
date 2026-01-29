@@ -1,0 +1,164 @@
+/* --- Q-LINE MARKA REHBERİ RENKLERİ --- */
+:root {
+    --navy: #233b61;    /* Kurumsal Lacivert */
+    --orange: #f39c12;  /* Vurgu Turuncusu */
+    --green: #27ae60;   /* Onay/Fiyat Yeşili */
+    --bg-grey: #f4f6f7; /* Zemin Rengi  */
+    --dark: #333333;    /* Yazı (Koyu Gri) */
+}
+
+body {
+    background-color: var(--bg-grey); /* Zemin Rengi Uygulaması */
+    color: var(--dark);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Temiz ve modern font */
+    margin: 0;
+    padding: 60px 20px;
+}
+
+.main-container { /* Ana içerik konteyneri */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-header { /* Sayfa başlığı stili */
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 60px;
+    color: var(--navy); /* Başlıkta Kurumsal Renk Kullanımı */
+}
+
+/* --- PRICING WRAPPER: FLEXBOX MİMARİSİ --- */
+.pricing-wrapper {
+    display: flex; /* Kartları yan yana hizalamak için flexbox kullanıldı [cite: 33, 34] */
+    justify-content: center; /* Kartları yatayda ortalar */
+    gap: 30px; /* Kartlar arasındaki boşluk [cite: 34] */
+    flex-wrap: wrap; /* Mobilde kartların alt alta düşmesi için [cite: 24, 51] */
+}
+
+/* --- KART TASARIMI --- */
+.card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 30px;
+    width: 310px;
+    display: flex; /* İçeriği dikey eksende yönetmek için */
+    flex-direction: column;
+    transition: all 0.3s ease; /* Yumuşak hover geçişi */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Kartlara derinlik katan gölge */
+    position: relative;
+}
+
+/* Standart Hover Hareketi */
+.card:hover {
+    transform: translateY(-10px); /* Hover durumunda yükselme efekti */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* POPÜLER KART VURGUSU */
+.card.popular {
+    border: 3px solid var(--orange); /* Turuncu Dikkat Rengi  */
+    transform: scale(1.05); /* Diğerlerinden biraz daha büyük durması için */
+}
+
+/* Popüler Kart Hover Düzenlemesi (Hareket Etmesi İçin) */
+.card.popular:hover {
+    /* Popüler kartın hem büyük kalması hem de yükselmesi sağlandı */
+    transform: scale(1.05) translateY(-10px); 
+}
+
+.badge { /* Popüler etiket stili */
+    position: absolute; /* Kartın üst kısmına yerleştirilir */
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%); /* Yatayda ortalar */
+    background: var(--orange); /* Rozet Turuncu Rengi [cite: 42] */
+    color: white;
+    padding: 6px 20px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+/* KART İÇERİK STİLLERİ */
+.card-header h3 { /* Kart başlığı stili */
+    margin-top: 10px;
+    color: var(--navy);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.price-box { /* Fiyat kutusu stili */
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.card-body ul { /* Özellik listesinin stilleri */
+    list-style: none; /* Madde işaretleri kaldırıldı */
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+
+.card-body li { 
+    padding: 12px 0;
+    border-bottom: none; /* Her öğe arasınaki çizgi kaldırıldı */
+    font-size: 0.95rem;
+}
+
+.card-body li.disabled {
+    color: #bdc3c7;
+    text-decoration: line-through; /* Kullanılamayan özellikler için çizgi efekti */
+}
+
+/* BUTONLAR */
+.btn {
+    display: block; /* Buton tam genişlikte */
+    text-align: center;
+    padding: 14px;
+    background-color: var(--navy); /* Varsayılan Buton Rengi [cite: 41] */
+    color: white;
+    text-decoration: none; /* Alt çizgi kaldırıldı */
+    border-radius: 8px; /* Yuvarlatılmış köşeler */
+    font-weight: bold;
+    margin-top: auto; /* Butonu kartın en altına sabitler */
+    transition: 0.3s; /* Yumuşak geçiş efekti */
+}
+
+.btn-primary {
+    background-color: var(--green); /* Onay/Fiyat Yeşili */
+}
+
+.btn:hover {
+    filter: brightness(1.2); /* Üzerine gelince hafif parlama */
+}
+
+/* GERİ DÖNÜŞ LİNKİ */
+.back-link {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.back-link a { /* Link stili */
+    color: var(--navy);
+    text-decoration: none; /* Alt çizgi kaldırıldı */
+    font-weight: bold;
+}
+
+/* --- RESPONSIVE AYARLAR (MOBİL) --- */
+@media (max-width: 768px) {
+    .pricing-wrapper {
+        flex-direction: column; /* Mobilde kartlar alt alta dizilir */
+        align-items: center;
+    }
+    
+    .card.popular {
+        transform: scale(1); /* Mobilde ölçeklendirmeyi sıfırla */
+    }
+    
+    /* Mobilde popüler kartın hover'da sadece yükselmesi için */
+    .card.popular:hover {
+        transform: translateY(-10px);
+    }
+}
