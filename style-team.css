@@ -1,0 +1,150 @@
+:root {
+    /* Renk değişkenleri: Proje genelinde kullanılacak renklerin tanımlandığı değişkenler. 
+       Bu sayede renk değişiklikleri kolayca yapılabilir. */
+    --navy: #233b61; /* Ana renk: Lacivert */
+    --orange: #f39c12; /* Vurgu rengi: Turuncu */
+    --green: #27ae60; /* Sertifika katmanı için yeşil renk */
+    --bg-grey: #f4f6f7; /* Arka plan rengi: Açık gri */
+}
+
+/* Genel gövde stili: Sayfanın genel görünümünü belirler. */
+body { 
+    background-color: var(--bg-grey); 
+    font-family: 'Segoe UI', sans-serif; 
+    margin: 0; 
+}
+
+/* Navigasyon çubuğu stili: Sayfanın üst kısmında yer alan menü çubuğu için stil. */
+.navbar { 
+    display: flex; /* Elemanları yatayda hizalar. */
+    justify-content: space-between; /* Elemanlar arasında boşluk bırakır. */
+    padding: 15px 5%; /* Çubuğun iç kenar boşlukları. */
+    background: white; /* Arka plan rengi beyaz. */
+    border-bottom: 3px solid var(--navy); /* Alt kenar çizgisi lacivert. */
+}
+.nav-links { 
+    display: flex; /* Linkleri yatayda hizalar. */
+    list-style: none; /* Liste işaretlerini kaldırır. */
+    gap: 15px; /* Linkler arasında boşluk bırakır. */
+}
+.nav-links a { 
+    text-decoration: none; /* Alt çizgiyi kaldırır. */
+    color: var(--navy); /* Linklerin rengi lacivert. */
+    font-weight: bold; /* Yazı kalınlığı artırılır. */
+}
+
+/* Ekip konteyneri: Ekip bilgilerini içeren ana kapsayıcı. */
+.team-container { 
+    max-width: 1200px; /* Konteynerin maksimum genişliği. */
+    margin: 50px auto; /* Üst ve alt boşluk 50px, ortalanmış. */
+    text-align: center; /* İçerik ortalanır. */
+}
+.team-grid { 
+    display: flex; /* Kartları yatayda hizalar. */
+    justify-content: center; /* Kartları ortalar. */
+    gap: 30px; /* Kartlar arasında boşluk bırakır. */
+    flex-wrap: wrap; /* Kartların bir satıra sığmaması durumunda alt satıra geçmesini sağlar. */
+    margin-top: 40px; /* Üstten boşluk bırakır. */
+}
+
+/* Ekip kartı stili: Her bir ekip üyesi için kart tasarımı. */
+.team-card {
+    background: white; /* Kartın arka plan rengi beyaz. */
+    width: 280px; /* Kart genişliği. */
+    border-radius: 12px; /* Kartın köşeleri yuvarlatılır. */
+    overflow: hidden; /* Taşan içerik gizlenir. */
+    position: relative; /* Katmanlar için konumlandırma. */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Hafif gölge efekti. */
+    transition: 0.3s; /* Geçiş animasyonu süresi. */
+}
+
+/* Resim kutusu: Kart içindeki resimlerin kapsayıcısı. */
+.image-box { 
+    position: relative; /* Katmanlar için konumlandırma. */
+    height: 350px; /* Resim kutusunun yüksekliği. */
+    overflow: hidden; /* Taşan içerik gizlenir. */
+}
+.image-box img { 
+    width: 100%; /* Resim genişliği kutuya uyacak şekilde ayarlanır. */
+    height: 100%; /* Resim yüksekliği kutuya uyacak şekilde ayarlanır. */
+    object-fit: cover; /* Resim, kutuyu tamamen kaplayacak şekilde ölçeklenir. */
+}
+
+/* Bilgi katmanı (Slide Up): Kartın üzerine gelindiğinde görünen bilgi katmanı. */
+.info-overlay {
+    position: absolute; /* Katman konumlandırması. */
+    bottom: -100%; /* Başlangıçta gizli, aşağıda. */
+    left: 0;
+    width: 100%;
+    height: 40%; /* Katmanın yüksekliği. */
+    background: rgba(35, 59, 97, 0.9); /* Lacivert arka plan, şeffaflık eklenmiş. */
+    color: white; /* Yazı rengi beyaz. */
+    display: flex; /* İçerik hizalaması için flexbox. */
+    align-items: center; /* Dikeyde ortalama. */
+    justify-content: center; /* Yatayda ortalama. */
+    transition: bottom 0.4s ease-in-out; /* Kayma animasyonu süresi ve hızı. */
+}
+
+/* Hover ile bilgi katmanı görünür olur: Kartın üzerine gelindiğinde bilgi katmanı yukarı kayar. */
+.team-card:hover .info-overlay { 
+    bottom: 0; /* Katman yukarı kayar ve görünür olur. */
+}
+
+/* Sertifika katmanı: Geliştirici kartında görünen özel katman. */
+.certificate-overlay {
+    position: absolute; /* Katman konumlandırması. */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(39, 174, 96, 0.9); /* Yeşil başarı rengi, şeffaflık eklenmiş. */
+    display: flex; /* İçerik hizalaması için flexbox. */
+    flex-direction: column; /* İçerik dikeyde hizalanır. */
+    justify-content: center; /* Dikeyde ortalama. */
+    align-items: center; /* Yatayda ortalama. */
+    opacity: 0; /* Başlangıçta görünmez. */
+    transform: scale(0.5); /* Küçülterek gizle. */
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animasyon hızı ve tarzı. */
+    z-index: 5; /* Katman sıralaması. */
+}
+
+/* Geliştirici kartı hover efekti: Geliştirici kartına gelindiğinde sertifika katmanı görünür olur. */
+.developer-card:hover .certificate-overlay {
+    opacity: 1; /* Görünürlük artırılır. */
+    transform: scale(1); /* Orijinal boyutuna büyütülür. */
+}
+
+/* Sertifika katmanı içeriği */
+.certificate-overlay img { 
+    width: 80%; /* Sertifika resmi genişliği. */
+    border: 2px solid white; /* Beyaz çerçeve. */
+    margin-bottom: 10px; /* Resim ile yazı arasındaki boşluk. */
+}
+.certificate-overlay span { 
+    color: white; /* Yazı rengi beyaz. */
+    font-weight: bold; /* Yazı kalınlığı artırılır. */
+    font-size: 0.8rem; /* Yazı boyutu. */
+}
+
+/* Başlık ve rol stili: Kartlardaki başlık ve rol yazıları için stil. */
+h3 { 
+    margin: 15px 0 5px; /* Üst, alt ve alt boşluklar. */
+    color: var(--navy); /* Başlık rengi lacivert. */
+}
+.role { 
+    color: var(--orange); /* Rol yazısı rengi turuncu. */
+    font-weight: bold; /* Yazı kalınlığı artırılır. */
+    padding-bottom: 15px; /* Alt boşluk eklenir. */
+}
+
+/* Geri dönüş linki: Sayfanın altındaki ana sayfaya dönüş linki. */
+.back-link {
+    text-align: center; /* Linki ortalar. */
+    margin-top: 50px; /* Üst boşluk ekler. */
+}
+
+.back-link a { /* Link stili: Ana sayfaya dönüş linki için özel stil. */
+    color: var(--navy); /* Link rengi lacivert. */
+    text-decoration: none; /* Alt çizgi kaldırıldı. */
+    font-weight: bold; /* Yazı kalınlığı artırıldı. */
+}
