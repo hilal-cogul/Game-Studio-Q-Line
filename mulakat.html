@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teknik Mülakat | Q-Line Game Studio</title>
+
+    <!-- Stil dosyalarının dahil edilmesi -->
+    <link rel="stylesheet" href="style-index.css"> 
+    <link rel="stylesheet" href="style-mulakat.css">
+</head>
+<body>
+
+    <!-- Uygulama ana konteyneri -->
+    <div class="app-container">
+
+        <!-- Başlangıç ekranı -->
+        <div id="start-screen" class="screen">
+            <div class="badge">Q-Line HR: Recruiting Engine</div>
+            <h1>Geliştirici Adayı Teknik Testi</h1>
+            <p>Q-Line Studio bünyesinde "Junior Game Developer" pozisyonu için teknik yeterliliğinizi ölçmek üzere 20 soruluk bir mülakat simülasyonu başlatılacaktır. Başarılar dileriz.</p>
+            <button id="start-btn" class="btn primary-btn">Mülakatı Başlat</button>
+        </div>
+
+        <!-- Soru ekranı -->
+        <div id="quiz-screen" class="screen hidden">
+            <div class="header">
+                <!-- Soru numarası ve mevcut puan göstergesi -->
+                <span id="question-number">Soru 1/20</span>
+                <span id="score-board">Mevcut Puan: 0</span>
+            </div>
+            
+            <!-- Soru metni -->
+            <h2 id="question-text">Soru yükleniyor...</h2>
+            
+            <!-- Seçeneklerin yerleştirileceği konteyner -->
+            <div id="options-container"></div>
+
+            <!-- Navigasyon butonları -->
+            <div class="nav-controls" style="display: flex; gap: 10px; margin-top: 20px;">
+                <button id="prev-btn" class="btn" style="flex: 1; text-align: center;">← Geri</button>
+                <button id="next-btn" class="btn" style="flex: 1; text-align: center;">İleri →</button>
+            </div>
+
+            <!-- Mülakatı bitirme butonu -->
+            <button id="finish-btn" class="btn primary-btn hidden" style="margin-top: 10px;">Mülakatı Bitir</button>
+        </div>
+
+        <!-- Sonuç ekranı -->
+        <div id="result-screen" class="screen hidden">
+            <h2>Mülakat Sonucu</h2>
+            <p>Toplam Teknik Puanınız:</p>
+            <h1 id="final-score">0</h1>
+            <div id="hr-feedback"></div>
+            <!-- Yeniden başlatma ve ana sayfaya dönme bağlantıları -->
+            <button onclick="location.reload()" class="btn primary-btn">Yeniden Dene</button>
+            <a href="index.html" class="home-link">Ana Sayfaya Dön</a>
+        </div>
+    </div>
+
+    <!-- JavaScript dosyasının dahil edilmesi -->
+    <script src="script-mulakat.js"></script>
+</body>
+</html>

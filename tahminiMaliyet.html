@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maliyet Hesaplama | Q-Line Game Studio</title>
+    <!-- Ana stil dosyası ve maliyet hesaplama sayfasına özel stil dosyası bağlantıları -->
+    <link rel="stylesheet" href="style-index.css">
+    <link rel="stylesheet" href="style-maliyet.css"> 
+</head>
+<body>
+
+    <!-- Navbar başlangıcı -->
+    <nav class="navbar">
+        <div class="logo">Q-Game Studio</div>
+        <ul class="nav-links">
+            <!-- Ana sayfa bağlantısı -->
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <!-- Ekibimiz sayfasına bağlantı -->
+            <li><a href="team.html">Ekibimiz</a></li>
+            <!-- Paketler sayfasına bağlantı -->
+            <li><a href="task2.html">Paketler</a></li>
+        </ul>
+    </nav>
+
+    <!-- Maliyet hesaplama arayüzü başlangıcı -->
+    <div class="calculator-container">
+        <h1>Proje Maliyet Robotu</h1>
+        <p>Hayalindeki oyunun yaklaşık geliştirme maliyetini saniyeler içinde öğren.</p>
+
+        <!-- Hedef platform seçimi için form grubu -->
+        <div class="form-group">
+            <label for="platform">Hedef Platform</label>
+            <select id="platform">
+                <option value="10000">Sadece Mobil (Temel)</option>
+                <option value="25000">PC & Steam (Orta Seviye)</option>
+                <option value="50000">Konsol & Cross-Platform (İleri Seviye)</option>
+            </select>
+        </div>
+
+        <!-- Oyun türü ve grafik yapısı seçimi için form grubu -->
+        <div class="form-group">
+            <label for="type">Oyun Türü / Grafik Yapısı</label>
+            <select id="type">
+                <option value="1">2D / Hypercasual (x1.0)</option>
+                <option value="1.5">3D / Stilize Low-Poly (x1.5)</option>
+                <option value="2.5">AAA / Realistic High-Poly (x2.5)</option>
+            </select>
+        </div>
+
+        <!-- Multiplayer seçeneği için checkbox grubu -->
+        <div class="form-group">
+            <div class="checkbox-group">
+                <input type="checkbox" id="multiplayer">
+                <label for="multiplayer">Multiplayer / Online Altyapı Desteği (+%40)</label>
+            </div>
+        </div>
+
+        <!-- Hesaplama butonu -->
+        <button class="calc-btn" id="btnHesapla">Maliyeti Hesapla</button>
+
+        <!-- Hesaplama sonucu gösterim alanı -->
+        <div id="result" class="result-area">
+            <p>Tahmini Proje Bedeli</p>
+            <h2 id="totalPrice">0 ₺</h2>
+            <small>*Bu fiyatlandırma sadece ön bilgilendirme amaçlıdır.</small>
+        </div>
+    </div>
+    <!-- Maliyet hesaplama arayüzü bitişi -->
+
+    <!-- Maliyet hesaplama için gerekli JavaScript dosyası -->
+    <script src="script-maliyet.js"></script>
+</body>
+</html>
