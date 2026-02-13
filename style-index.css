@@ -1,0 +1,233 @@
+/* --- Q-LINE MARKA REHBERİ RENKLERİ --- */
+:root {
+    --navy: #233b61; /* Kurumsal Lacivert */
+    --orange: #f39c12; /* Vurgu Turuncusu */
+    --bg-grey: #f4f6f7; /* Sayfa Arka Plan Rengi */
+   
+}
+
+body {  /* genel stil ayarları*/
+    background-color: var(--bg-grey);
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: #333333;
+}
+
+/* --- NAVBAR VE BUTONLAŞTIRILMIŞ LİNKLER --- */
+.navbar {
+    display: flex; /* Logo ve menüyü aynı satıra yan yana dizer */
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: white;
+    border-bottom: 3px solid var(--navy);
+}
+
+.nav-links {  /* Menü linkleri */
+    display: flex; /* Masaüstünde yan yana linkler için */
+    list-style: none;
+    gap: 20px; /* Linkler arasındaki boşluk artırıldı */
+    align-items: center; /* Linklerin dikey olarak hizalanması sağlandı */
+    justify-content: center; /* Linklerin yatay olarak ortalanması sağlandı */
+}
+
+.nav-links a { /* menü bağlantıları */
+    text-decoration: none;
+    color: var(--navy);
+    font-weight: bold;
+    padding: 10px 15px; /* Linklerin boyutları eşitlenerek simetri sağlandı */
+    transition: 0.3s;
+    display: inline-block;
+    text-align: center; /* Metni ortalamak için */
+}
+
+/* Dropdown Stilleri */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hamburger-icon {
+    color: var(--navy);
+    font-size: 1.1rem;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    z-index: 100;
+    border-radius: 8px;
+    top: 100%;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: var(--navy) !important;
+    padding: 12px 16px;
+    display: block;
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--orange);
+    color: white;
+    padding-left: 20px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Hamburger menü hover efekti */
+.dropdown:hover .dropbtn {
+    background-color: var(--orange);
+    color: white;
+    border-radius: 10px; /* Navbar butonlarıyla aynı hizaya getirmek için */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px; /* Diğer navbar butonlarıyla aynı boyutta olması için */
+}
+
+.dropdown:hover .hamburger-icon {
+    color: white; /* Hover durumunda ikonun görünür olması için beyaz renk ayarlandı */
+    font-size: 1.2rem; /* Daha belirgin olması için boyut artırıldı */
+    transition: color 0.3s, font-size 0.3s; /* Geçiş animasyonu eklendi */
+}
+
+.nav-links a:hover { /* hover efekti */
+    border-radius: 10px;
+    background-color: var(--orange);
+    color: white;
+}
+
+/* --- HERO BÖLÜMÜ --- */
+.hero {
+    display: flex; /* Masaüstünde Yazı (Sol) + Resim (Sağ) düzeni için */
+    align-items: center;
+    padding: 60px 5%;
+    gap: 40px;
+    flex-wrap: wrap; /* küçük ekranlarda elemanlar sığmadığında alt satıra düşebilmesi için */
+}
+
+.hero-content { flex: 1; min-width: 300px; }
+
+.hero-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    margin-top: 40px; /* Paragraf etiketine göre butonu biraz aşağı almak için margin artırıldı */
+    padding: 12px 25px;
+    color: var(--navy) !important;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.hero-btns a {
+    display: inline-block;
+    padding: 12px 30px; 
+    background-color: var(--navy); /* Başlangıçta navy rengi */
+    color: white; /* Yazı rengi beyaz */
+    text-decoration: none;
+    border-radius: 5px; /* Köşeleri yuvarlatma */
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s; /* Geçiş animasyonu */
+
+}
+
+.hero-btns a:hover {
+    background-color: var(--orange); /* Hover durumunda turuncu arka plan */
+    color: white; /* Yazı rengi beyaz kalır */
+}
+
+/* --- SERVİS BÖLÜMÜ --- */
+.services {
+    padding: 60px 5%;
+    text-align: center;
+}
+
+/* Hizmet kartları için ızgara düzeni */
+.services-grid {
+    display: grid; /* Hizmet kutularını ızgara yapısında yönetmek için */
+    grid-template-columns: repeat(3, 1fr); /* Geniş ekranda 3'lü sütun */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Her bir hizmet kartı stili */
+.service-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--orange); 
+}
+
+/* --- FOOTER --- */
+.footer {
+    padding: 50px 5%;
+    background-color: white;
+    text-align: center;
+    border-top: 1px solid #e1e8ed;
+    margin-top: 40px;
+}
+
+.footer-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: var(--navy);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.footer-btn:hover {  /* hover efekti ile buton rengi turuncuya değiştirilir*/
+    background-color: var(--orange);
+}
+
+/* --- RESPONSIVE AYARLAR (TABLET & MOBİL) --- */
+
+/* TABLET: 769px - 1024px arası */
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr); /* Tablet modunda 2'li sütun isteri */
+    }
+}
+
+/* MOBİL: 768px ve altı */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Mobilde logonun üstte, menünün altta olması için */
+        gap: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column; /* Linklerin mobilde alt alta dizilmesi için */
+        padding: 0;
+    }
+
+    .hero {
+        flex-direction: column-reverse; /* Mobilde Resim (Üst) + Yazı (Alt) geçişi için */
+        text-align: center;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr; /* Mobilde tekli sütun dizilimi için */
+    }
+}
